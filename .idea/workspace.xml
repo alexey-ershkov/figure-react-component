@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5a935cf-cd6c-4f68-a092-a5ed3ba4f985" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ErrorSign/ErrorSign.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Figure/Figure.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Loader/Loader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/error.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/withCaption.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Figure/Figure.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Figure/Figure.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,15 +35,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Figure/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/media" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/media" />
       <recent name="$PROJECT_DIR$/src/components/Figure/assets" />
     </key>
   </component>
@@ -55,7 +57,7 @@
       <scripts>
         <script value="start" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -70,6 +72,10 @@
       <updated>1621509279493</updated>
       <workItem from="1621509280723" duration="11000" />
       <workItem from="1621509325010" duration="354000" />
+      <workItem from="1621598129056" duration="97000" />
+      <workItem from="1621598228815" duration="33000" />
+      <workItem from="1621598395438" duration="667000" />
+      <workItem from="1621599229671" duration="6178000" />
     </task>
     <servers />
   </component>

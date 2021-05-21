@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import styled from "styled-components";
 import Loader from "../Loader/Loader";
 import ErrorSign from "../ErrorSign/ErrorSign";
@@ -12,8 +12,7 @@ interface figureProps {
 }
 
 interface styledFigureAttrs {
-    arWidth: number
-    arHeight: number
+    realHeigth: number
 }
 
 enum imageState {
@@ -25,8 +24,13 @@ enum imageState {
 const StyledFigure = styled.figure<styledFigureAttrs>`
   position: relative;
   width: 100%;
-  height: calc(100% * ${props => props.arHeight} / ${props => props.arWidth});
+  height: ${props => props.realHeigth}px;
   margin: 0;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `
 
 const StyledImg = styled.img`
@@ -40,11 +44,12 @@ const StyledImg = styled.img`
 function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.Element {
 
     const [imgState, setImgState] = useState<imageState>(imageState.Loading)
+    const [realWidth, setRealWidth] = useState<number>(0)
 
-    if (arHeight >= arWidth) {
+    if (arHeight > arWidth) {
         arHeight = 9
         arWidth = 16
-        console.error("arWidth param must be bigger than arHeight param")
+        console.error("arWidth param must be bigger or equal arHeight param")
     }
 
 
@@ -68,11 +73,16 @@ function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.E
         }
     }, [src])
 
+    const hadleSizeChange = useCallback(figure => {
+        if (figure !== null) {
+            setRealWidth(figure.getBoundingClientRect().width);
+        }
+    }, [])
+
 
     if (imgState === imageState.Success) {
-
         return (
-            <StyledFigure arWidth={arWidth} arHeight={arHeight}>
+            <StyledFigure ref={hadleSizeChange} realHeigth={realWidth * arHeight / arWidth}>
                 <StyledImg src={src}/>
                 {
                     children && <figcaption>{children}</figcaption>
@@ -82,14 +92,21 @@ function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.E
     }
 
     if (imgState === imageState.Error) {
-        return <ErrorSign/>
+        return (
+            <StyledFigure ref={hadleSizeChange} realHeigth={realWidth * arHeight / arWidth}>
+                <ErrorSign/>
+            </StyledFigure>
+        )
     }
 
 
     return (
-        <Loader/>
+        <StyledFigure ref={hadleSizeChange} realHeigth={realWidth * arHeight / arWidth}>
+            <Loader/>
+        </StyledFigure>
     )
 }
 
 
 export default Figure
+
