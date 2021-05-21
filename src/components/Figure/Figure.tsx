@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useCallback} from "react";
 import styled from "styled-components";
-import Loader from "../Loader/Loader";
-import ErrorSign from "../ErrorSign/ErrorSign";
+import Loader from "./Loader/Loader";
+import ErrorSign from "./ErrorSign/ErrorSign";
 
 
 interface figureProps {
@@ -12,10 +12,10 @@ interface figureProps {
 }
 
 interface styledFigureAttrs {
-    realHeigth: number
+    realHeight: number
 }
 
-enum imageState {
+enum imageLoadStates {
     Loading,
     Success,
     Error
@@ -24,9 +24,9 @@ enum imageState {
 const StyledFigure = styled.figure<styledFigureAttrs>`
   position: relative;
   width: 100%;
-  height: ${props => props.realHeigth}px;
+  height: ${props => props.realHeight}px;
   margin: 0;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +43,7 @@ const StyledImg = styled.img`
 
 function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.Element {
 
-    const [imgState, setImgState] = useState<imageState>(imageState.Loading)
+    const [imgState, setImgState] = useState<imageLoadStates>(imageLoadStates.Loading)
     const [realWidth, setRealWidth] = useState<number>(0)
 
 
@@ -52,10 +52,10 @@ function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.E
         image.src = src
 
         const loadedCallback = () => {
-            setImgState(imageState.Success)
+            setImgState(imageLoadStates.Success)
         }
         const errorCallback = () => {
-            setImgState(imageState.Error)
+            setImgState(imageLoadStates.Error)
         }
 
         image.addEventListener('load', loadedCallback)
@@ -67,16 +67,16 @@ function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.E
         }
     }, [src])
 
-    const hadleSizeChange = useCallback(figure => {
-        if (figure !== null) {
+    const figureRef = useCallback(figure => {
+        if (figure) {
             setRealWidth(figure.getBoundingClientRect().width);
         }
     }, [])
 
 
-    if (imgState === imageState.Success) {
+    if (imgState === imageLoadStates.Success) {
         return (
-            <StyledFigure ref={hadleSizeChange} realHeigth={realWidth * arHeight / arWidth}>
+            <StyledFigure ref={figureRef} realHeight={realWidth * arHeight / arWidth}>
                 <StyledImg src={src}/>
                 {
                     children && <figcaption>{children}</figcaption>
@@ -85,9 +85,9 @@ function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.E
         )
     }
 
-    if (imgState === imageState.Error) {
+    if (imgState === imageLoadStates.Error) {
         return (
-            <StyledFigure ref={hadleSizeChange} realHeigth={realWidth * arHeight / arWidth}>
+            <StyledFigure ref={figureRef} realHeight={realWidth * arHeight / arWidth}>
                 <ErrorSign/>
             </StyledFigure>
         )
@@ -95,7 +95,7 @@ function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.E
 
 
     return (
-        <StyledFigure ref={hadleSizeChange} realHeigth={realWidth * arHeight / arWidth}>
+        <StyledFigure ref={figureRef} realHeight={realWidth * arHeight / arWidth}>
             <Loader/>
         </StyledFigure>
     )
@@ -103,4 +103,3 @@ function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.E
 
 
 export default Figure
-
