@@ -46,12 +46,6 @@ function Figure({src, arHeight = 9, arWidth = 16, children}: figureProps): JSX.E
     const [imgState, setImgState] = useState<imageState>(imageState.Loading)
     const [realWidth, setRealWidth] = useState<number>(0)
 
-    if (arHeight > arWidth) {
-        arHeight = 9
-        arWidth = 16
-        console.error("arWidth param must be bigger or equal arHeight param")
-    }
-
 
     useEffect(() => {
         const image = new Image()

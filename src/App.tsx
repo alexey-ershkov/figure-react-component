@@ -9,11 +9,12 @@ const StyledApp = styled.div`
   transform: translate(-50%, -50%);
   
   width: 75vw;
-  height: 75vh;
+  height: 25vh;
   
   display: flex;
   align-items: center;
   justify-content: center;
+
 `
 
 function App() {

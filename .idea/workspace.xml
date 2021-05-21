@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5a935cf-cd6c-4f68-a092-a5ed3ba4f985" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/error.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/withCaption.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Figure/Figure.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Figure/Figure.tsx" afterDir="false" />
     </list>
@@ -75,7 +71,7 @@
       <workItem from="1621598129056" duration="97000" />
       <workItem from="1621598228815" duration="33000" />
       <workItem from="1621598395438" duration="667000" />
-      <workItem from="1621599229671" duration="6178000" />
+      <workItem from="1621599229671" duration="6716000" />
     </task>
     <servers />
   </component>
