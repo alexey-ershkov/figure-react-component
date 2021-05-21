@@ -23,5 +23,14 @@ React component that provides preloaded space for image
 ## In case when image cannot be loaded you will see this
 ![](./media/error.gif)
 
-#Task source
+# How to test it
+
+```bash
+git clone https://github.com/alexey-ershkov/figure-react-component
+cd figure-react-component
+npm i
+npm run start
+```
+
+# Task source
 [Task source link](https://docs.google.com/document/d/1dhMPnkwXXc2VTGl74GK5FmzwPBhPOxbUxWdwZpyqCXA/edit#)
